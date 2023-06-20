@@ -45,7 +45,7 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 
 ### Register sink connector:
 ```console
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @target-postgres.json
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" http://localhost:8083/connectors/ -d @sink-postgres.json
 ```
 
 ### Result:
