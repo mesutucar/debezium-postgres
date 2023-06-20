@@ -1,0 +1,21 @@
+{
+    "name": "sink-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.jdbc.JdbcSinkConnector",
+        "tasks.max": "1",
+        "connection.url": "jdbc:postgresql://postgres2:5432/inventory?currentSchema=inventory",
+        "connection.username": "postgres",
+        "connection.password": "postgres",
+        "auto.create": "true",
+        "insert.mode": "upsert",
+        "delete.enabled": "true",
+        "primary.key.mode": "record_key",
+        "primary.key.fields": "id,order_number,product_id",
+        "schema.evolution": "basic",
+        "topics.regex": "(inventory\\.).*",
+        "transforms": "route",
+        "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+        "transforms.route.regex": "(inventory\\.)(.*)",
+        "transforms.route.replacement": "$2"
+    }
+}
